@@ -71,7 +71,7 @@ namespace Proje.v1.Controllers
             public IActionResult SearchNotes([FromQuery] string? search)
             {
                 if (string.IsNullOrWhiteSpace(search))
-                    return BadRequest("Sezach boş olamaz!!");
+                    return BadRequest("Search boş olamaz!!");
                 var result = NoteStore.Notes
                     .Where(x => !x.IsArchived  && x.Title != null && x.Title.Contains(search) )
                     .OrderByDescending(x => x.CreatedDate)
